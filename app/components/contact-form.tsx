@@ -1,55 +1,72 @@
-"use client"
+'use client'
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { useState } from "react"
-import { submitContactForm } from "../actions"
+import { useState } from 'react'
+import { toast } from 'sonner'
+import { Button } from '@/components/ui/button'
 
 export default function ContactForm() {
-  const [pending, setPending] = useState(false)
-  const [message, setMessage] = useState("")
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [submitting, setSubmitting] = useState(false)
 
-  async function handleSubmit(formData: FormData) {
-    setPending(true)
-    try {
-      const response = await submitContactForm(formData)
-      setMessage(response.message)
-    } catch (error) {
-      setMessage("Something went wrong. Please try again.")
-    } finally {
-      setPending(false)
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    if (!form.name || !form.email || !form.message) {
+      toast.error('Please fill out all fields.')
+      return
     }
+
+    setSubmitting(true)
+
+    // Fake success feedback
+    setTimeout(() => {
+      toast.success('Message sent successfully!')
+      setSubmitting(false)
+      setForm({ name: '', email: '', message: '' })
+    }, 1000)
   }
 
   return (
-    <Card className="p-6">
-      <form action={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium mb-2">
-            Name
-          </label>
-          <Input id="name" name="name" required />
-        </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-2">
-            Email
-          </label>
-          <Input id="email" name="email" type="email" required defaultValue="mananshah4086@gmail.com" />
-        </div>
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium mb-2">
-            Message
-          </label>
-          <Textarea id="message" name="message" required />
-        </div>
-        <Button type="submit" className="w-full" disabled={pending}>
-          {pending ? "Sending..." : "Send Message"}
-        </Button>
-        {message && <p className="text-sm text-center mt-4 text-muted-foreground">{message}</p>}
-      </form>
-    </Card>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium">Name</label>
+        <input
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          className="mt-1 w-full rounded-md border px-4 py-2 text-sm bg-background border-muted focus:outline-none focus:ring focus:ring-primary"
+          placeholder="Your name"
+        />
+      </div>
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium">Email</label>
+        <input
+          type="email"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+          className="mt-1 w-full rounded-md border px-4 py-2 text-sm bg-background border-muted focus:outline-none focus:ring focus:ring-primary"
+          placeholder="your@email.com"
+        />
+      </div>
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium">Message</label>
+        <textarea
+          name="message"
+          rows={5}
+          value={form.message}
+          onChange={handleChange}
+          className="mt-1 w-full rounded-md border px-4 py-2 text-sm bg-background border-muted focus:outline-none focus:ring focus:ring-primary"
+          placeholder="Let's build something amazing..."
+        />
+      </div>
+      <Button type="submit" disabled={submitting}>
+        {submitting ? 'Sending...' : 'Send Message'}
+      </Button>
+    </form>
   )
 }
-

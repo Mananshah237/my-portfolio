@@ -13,7 +13,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Hi, I'm Manan — Crafting Clean Code & Beautiful Interfaces
+          Hi, I'm Manan, CSE student at UT Arlington
         </motion.h1>
 
         <motion.p
@@ -22,7 +22,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          Full-stack developer | UI/UX enthusiast | Problem solver
+          Full-stack developer | Cybersecurity enthusiast | Software Developer
         </motion.p>
 
         <motion.div

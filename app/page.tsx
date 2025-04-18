@@ -7,11 +7,11 @@ import TechStack from "./components/tech-stack"
 import EducationSection from "./components/education-section"
 import ExperienceSection from "./components/experience-section"
 import Hero from "./components/Hero"
+import FeaturedProject from "./components/FeaturedProject"
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center">
           <div className="mr-4 hidden md:flex">
@@ -32,11 +32,43 @@ export default function Page() {
         </div>
       </header>
 
-      {/* Hero Section */}
       <Hero />
 
-      {/* Main Content */}
       <main className="container px-4 md:px-6">
+        <FeaturedProject
+          title="Distributed Rate Limiter"
+          description="C++17 system to control API traffic across AWS-hosted microservices, using Redis for real-time quota tracking."
+          image="./project-preview3.jpeg"
+          github="https://github.com/Mananshah237/Distributed-Rate-Limiter"
+        />
+
+        <FeaturedProject
+          title="Real-Time Log Aggregator"
+          description="Built a C++17 app to aggregate logs from distributed nodes into AWS S3, processing 1M+ entries daily with Kafka streaming."
+          image="/project-preview2.png"
+          github="https://github.com/Mananshah237/Real-Time-Log-Aggregator"
+        />
+        <FeaturedProject
+          title="Arti Designer Studio"
+          description="Design portfolio and client collaboration tool built with Next.js and shadcn/ui, deployed on Vercel."
+          image="/project-preview1.jpg"
+          github="https://github.com/Mananshah237/arti-designer-studio"
+        />
+
+        <FeaturedProject
+          title="HPC Container Scanner"
+          description="Python-based tool to collect and verify container images from Docker Hub, Quay.io, and Singularity Library for HPC domains."
+          image="/project-preview4.jpg"
+          github="https://github.com/Mananshah237/scientific-container-verifier"
+        />
+
+        <FeaturedProject
+          title="Service Request System"
+          description="AI-powered Android app using Docker and NLP APIs to auto-schedule and process service requests — pitched to Uber."
+          image="/project-preview5.png"
+          github="https://github.com/Mananshah237"
+        />
+
         <section id="education" className="py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Education</h2>
@@ -50,35 +82,35 @@ export default function Page() {
             <ExperienceSection />
           </div>
         </section>
-
+{/* 
         <section id="projects" className="py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Projects</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">More Projects</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <ProjectCard
+                title="Distributed Rate Limiter"
+                description="C++17 API throttler deployed on AWS, ensuring high-throughput without overload."
+                image="./project-preview3.png?height=400&width=600"
+                link="https://github.com/Mananshah237/Distributed-Rate-Limiter"
+                tags={["C++", "AWS", "Redis"]}
+              />
+              <ProjectCard
                 title="Real-Time Log Aggregator"
-                description="Built a C++17 app to aggregate logs from distributed nodes into AWS S3, processing 1M+ entries daily with Kafka integration for real-time streaming."
+                description="Aggregates logs in real-time across cloud systems with Kafka + S3."
                 image="/placeholder.svg?height=400&width=600"
-                link="https://github.com/Mananshah237"
-                tags={["C++", "AWS S3", "Kafka"]}
+                link="https://github.com/Mananshah237/Real-Time-Log-Aggregator"
+                tags={["C++", "AWS", "Kafka"]}
               />
               <ProjectCard
                 title="Service Request System"
-                description="AI-driven Android app with AWS-hosted NLP and Dockerized scheduling, cutting manual effort by 40%. Pitched to UBER, showcasing scalable cloud architecture."
+                description="Dockerized Android app using NLP services and cloud-scheduling."
                 image="/placeholder.svg?height=400&width=600"
                 link="https://github.com/Mananshah237"
-                tags={["JavaScript", "Python", "AWS", "Docker"]}
-              />
-              <ProjectCard
-                title="Distributed Rate Limiter"
-                description="Developed a distributed rate-limiting system using C++17 to manage API traffic across AWS-hosted services, preventing overload with Redis for real-time quota tracking."
-                image="/placeholder.svg?height=400&width=600"
-                link="https://github.com/Mananshah237"
-                tags={["C++", "AWS", "Redis"]}
+                tags={["JavaScript", "Python", "Docker", "NLP"]}
               />
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
@@ -97,7 +129,6 @@ export default function Page() {
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="border-t">
         <div className="container flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6">
           <p className="text-xs text-gray-500 dark:text-gray-400">© 2024 Manan Shah. All rights reserved.</p>
@@ -108,5 +139,5 @@ export default function Page() {
         </div>
       </footer>
     </div>
-  );
+  )
 }
