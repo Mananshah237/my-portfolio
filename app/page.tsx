@@ -8,6 +8,7 @@ import EducationSection from "./components/education-section"
 import ExperienceSection from "./components/experience-section"
 import Hero from "./components/Hero"
 import FeaturedProject from "./components/FeaturedProject"
+import SectionFadeIn from './components/SectionFadeIn'
 
 export default function Page() {
   return (
@@ -38,7 +39,7 @@ export default function Page() {
         <FeaturedProject
           title="Distributed Rate Limiter"
           description="C++17 system to control API traffic across AWS-hosted microservices, using Redis for real-time quota tracking."
-          image="./project-preview3.jpeg"
+          image="/project-preview3.jpeg"
           github="https://github.com/Mananshah237/Distributed-Rate-Limiter"
         />
 
@@ -48,6 +49,7 @@ export default function Page() {
           image="/project-preview2.png"
           github="https://github.com/Mananshah237/Real-Time-Log-Aggregator"
         />
+
         <FeaturedProject
           title="Arti Designer Studio"
           description="Design portfolio and client collaboration tool built with Next.js and shadcn/ui, deployed on Vercel."
@@ -69,64 +71,45 @@ export default function Page() {
           github="https://github.com/Mananshah237"
         />
 
-        <section id="education" className="py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Education</h2>
-            <EducationSection />
-          </div>
-        </section>
+        <div className="h-12" />
 
-        <section id="experience" className="py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Experience</h2>
-            <ExperienceSection />
-          </div>
-        </section>
-{/* 
-        <section id="projects" className="py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">More Projects</h2>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <ProjectCard
-                title="Distributed Rate Limiter"
-                description="C++17 API throttler deployed on AWS, ensuring high-throughput without overload."
-                image="./project-preview3.png?height=400&width=600"
-                link="https://github.com/Mananshah237/Distributed-Rate-Limiter"
-                tags={["C++", "AWS", "Redis"]}
-              />
-              <ProjectCard
-                title="Real-Time Log Aggregator"
-                description="Aggregates logs in real-time across cloud systems with Kafka + S3."
-                image="/placeholder.svg?height=400&width=600"
-                link="https://github.com/Mananshah237/Real-Time-Log-Aggregator"
-                tags={["C++", "AWS", "Kafka"]}
-              />
-              <ProjectCard
-                title="Service Request System"
-                description="Dockerized Android app using NLP services and cloud-scheduling."
-                image="/placeholder.svg?height=400&width=600"
-                link="https://github.com/Mananshah237"
-                tags={["JavaScript", "Python", "Docker", "NLP"]}
-              />
+        <SectionFadeIn>
+          <section id="education" className="py-12 md:py-24 lg:py-32">
+            <div className="container px-4 md:px-6">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Education</h2>
+              <EducationSection />
             </div>
-          </div>
-        </section> */}
+          </section>
+        </SectionFadeIn>
 
-        <section className="py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Tech Stack</h2>
-            <TechStack />
-          </div>
-        </section>
-
-        <section id="contact" className="py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="mx-auto max-w-2xl">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Get in Touch</h2>
-              <ContactForm />
+        <SectionFadeIn>
+          <section id="experience" className="py-12 md:py-24 lg:py-32">
+            <div className="container px-4 md:px-6">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Experience</h2>
+              <ExperienceSection />
             </div>
-          </div>
-        </section>
+          </section>
+        </SectionFadeIn>
+
+        <SectionFadeIn>
+          <section className="py-12 md:py-24 lg:py-32">
+            <div className="container px-4 md:px-6">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Tech Stack</h2>
+              <TechStack />
+            </div>
+          </section>
+        </SectionFadeIn>
+
+        <SectionFadeIn>
+          <section id="contact" className="py-12 md:py-24 lg:py-32">
+            <div className="container px-4 md:px-6">
+              <div className="mx-auto max-w-2xl">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-12 text-center">Get in Touch</h2>
+                <ContactForm />
+              </div>
+            </div>
+          </section>
+        </SectionFadeIn>
       </main>
 
       <footer className="border-t">

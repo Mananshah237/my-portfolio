@@ -5,6 +5,13 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import type React from "react" // Import React
 import { Toaster } from 'sonner'
+import { Outfit } from 'next/font/google'
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-heading',
+})
+
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,7 +29,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-sans antialiased", inter.className)}>
+      <body className={cn("min-h-screen font-sans antialiased", inter.className, outfit.variable)}>
+
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Toaster richColors />
           {children}
